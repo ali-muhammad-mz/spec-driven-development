@@ -1,50 +1,76 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+Version change: none -> 1.0.0
+Modified principles: template placeholders -> Static Web App Minimum
+Added sections: Static Web App Constraints; Development Workflow
+Removed sections: none
+Templates requiring updates:
+- updated: .specify/templates/plan-template.md
+- updated: .specify/templates/tasks-template.md
+- reviewed: .specify/templates/spec-template.md
+- not present: .specify/templates/commands/*.md
+Follow-up TODOs: none
+-->
+
+# First Project Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Static Output First
+The application MUST be deliverable as static files: HTML, CSS, JavaScript, and
+assets. Runtime server logic, databases, and authenticated backends are out of
+scope unless a future amendment explicitly permits them.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Rationale: static delivery keeps the project simple, portable, and cheap to run.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. User-Visible Scope
+Every feature MUST be expressed as an independently testable user scenario with
+clear acceptance criteria. Work that does not improve a user-visible outcome
+MUST be deferred unless it is required for build, deployment, or accessibility.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+Rationale: the app should grow by small, demonstrable slices.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Accessibility Baseline
+Pages and controls MUST use semantic markup, keyboard-accessible interactions,
+readable contrast, and descriptive text alternatives for meaningful media.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Rationale: static apps still need to be usable by people with different devices
+and access needs.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Static Web App Constraints
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+The default project structure is a single static web app. Source files SHOULD
+live under `src/` when a build step exists, and deployable files SHOULD live
+under `public/` or `dist/` according to the chosen tool. If no build tool is
+needed, repository-root HTML/CSS/JS files are acceptable.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+External services MAY be linked from the frontend, but features MUST still define
+the user impact, failure behavior, and any required configuration. Secrets MUST
+NOT be embedded in static files.
+
+## Development Workflow
+
+Specifications MUST list prioritized user stories, measurable success criteria,
+and assumptions. Plans MUST document the selected static app structure,
+dependencies, target browsers or platforms, and the verification approach.
+Tasks MUST be grouped by user story and include any setup, accessibility,
+responsive layout, asset, and verification work required to complete the story.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs feature specifications, plans, tasks, and
+implementation decisions for this project. Amendments MUST update this file,
+include a Sync Impact Report, and review dependent Spec Kit templates for
+alignment.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Versioning follows semantic versioning:
+- MAJOR for removing or redefining a principle in a way that changes prior
+  obligations.
+- MINOR for adding a principle, section, or material new requirement.
+- PATCH for clarifications that do not change obligations.
+
+Compliance MUST be checked during planning and before delivery. Any exception
+MUST be documented in the plan's Complexity Tracking section with the reason and
+the simpler alternative that was rejected.
+
+**Version**: 1.0.0 | **Ratified**: 2026-06-05 | **Last Amended**: 2026-06-05

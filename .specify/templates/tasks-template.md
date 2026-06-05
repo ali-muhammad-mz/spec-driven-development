@@ -21,6 +21,7 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
+- **Static web app**: `src/`, `public/`, and `dist/` at repository root
 - **Single project**: `src/`, `tests/` at repository root
 - **Web app**: `backend/src/`, `frontend/src/`
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
@@ -154,6 +155,8 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Documentation updates in docs/
 - [ ] TXXX Code cleanup and refactoring
 - [ ] TXXX Performance optimization across all stories
+- [ ] TXXX Accessibility and keyboard interaction pass
+- [ ] TXXX Responsive layout check across target viewports
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation

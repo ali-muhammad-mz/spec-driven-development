@@ -40,7 +40,16 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Static output: plan confirms the feature can ship as HTML/CSS/JS/assets without
+  runtime server requirements.
+- User-visible scope: plan maps implementation work to independently testable
+  user scenarios and acceptance criteria.
+- Accessibility baseline: plan identifies semantic markup, keyboard access,
+  contrast, and meaningful media text requirements.
+- Lightweight dependencies: plan justifies any new package, framework, or build
+  tool and notes bundle or maintenance impact.
+- Verification: plan states the build, lint, preview, browser, or inspection
+  checks that will be run before delivery.
 
 ## Project Structure
 
@@ -65,6 +74,15 @@ specs/[###-feature]/
 -->
 
 ```text
+# [REMOVE IF UNUSED] Static web app (DEFAULT for this project)
+src/
+├── assets/
+├── styles/
+└── scripts/
+
+public/ or dist/
+└── [deployable static files]
+
 # [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
 src/
 ├── models/
