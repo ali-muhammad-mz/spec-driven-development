@@ -1,4 +1,4 @@
-# Fill constitution for static app
+# Make a social media application using spec-driven development
 
 > Fill the constitution file with bare minimum for a static web app based on the template
 
